@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        .tabla {
+            width: 100%;
+            border: 1px solid #000;
+        }
+        td{
+            text-align: center;
+            border-color: black;
+            border:  1px solid #000;
+            background-color: rgb(255, 202, 202);
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Practica 4</h1>
+    <table class="table table-bordered text-center">
+      <tr>
+        <td>
+          <img
+            src="data:image/jpeg;base64,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"
+            alt=""
+          />
+        </td>
+        <td>
+          <audio controls src="audio/NDT.mp3"></audio>
+        </td>
+      </tr>
+    </table>
+    Foto de
+    <a
+      href="https://unsplash.com/es/@neom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+      >NEOM</a
+    >
+    en
+    <a
+      href="https://unsplash.com/es/fotos/una-persona-de-pie-en-la-cima-de-una-duna-de-arena-brFQojtwSzE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+      >Unsplash</a
+    >
+    <table class="tabla">
+        <tr>
+        <td>Nombre</td>
+        <td>Edad</td>
+        <td>Sueldo</td>
+        </tr>
+        <tr>
+            <td>Jesus</td>
+            <td>Almanza</td>
+            <td>$100,000.00</td>
+        </tr>
+        <tr>
+            <td>Charls</td>
+            <td>Serrano</td>
+            <td>$5.00</td>
+        </tr>
+        <tr>
+            <td>El pablo</td>
+            <td>Walmart</td>
+            <td>$1,000</td>
+        </tr>
+</table>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
