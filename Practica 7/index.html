@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animación</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body {
             animation: colores 50s infinite;
@@ -25,37 +27,16 @@
                 background-color: rgb(108, 152, 255);
             }
         }
-        .cuadroBlanco1{
-            width: 200px;
-            height: 50px;
-            background-color: white;
-            position: absolute;
-            top: 45%;
-            bottom: 20px;
-            right: 200px;
-            text-align: center;
-            
-            padding: 10PX;
-            animation: mover 3s infinite;
-            
-        }
-        @keyframes mover {
-            0% {
-                transform: rotate(0deg);
-                top: 0px;
-            }
-            100% {
-                transform: rotate(360deg);
-                top: 150px
-            }
-        }
+        
+
         .cuadro2{
             width: 50px;
             height: 50px;
             background-color: rgb(128, 146, 251);
             position: absolute;
             text-align: center;
-            animation: mover 3s infinite;
+            top: 50%;
+            animation: mov 3s infinite;
             
         }
         .cuadro3{
@@ -64,8 +45,9 @@
             background-color: rgb(255, 184, 248);
             position: absolute;
             text-align: center;
-            left: 80%;
-            animation: mover 3s infinite;
+            top: 50%;
+            left: 160px;
+            animation: mov2 3s infinite;
 
         }
         .cuadro4{
@@ -75,7 +57,8 @@
             position: absolute;
             text-align: center;
             top: 50%;
-            animation: mov 3s infinite;
+            left: 300px;
+            animation: mov3 3s infinite;
 
 
         }
@@ -85,18 +68,105 @@
             background-color: rgb(130, 213, 255);
             position: absolute;
             text-align: center;
-            left: 80%;
+            left: 445px;
             top: 50%;
-            animation: mov 3s infinite;
+            animation: mov4 3s infinite;
 
+
+        }
+        .cuadro6{
+            width: 50px;
+            height: 50px;
+            background-color: salmon;
+            position: absolute;
+            text-align: center;
+            left: 600px;
+            top: 50%;
+            animation: mov5 3s infinite;
 
         }
         @keyframes mov {
             0% {
                 transform: rotate(0deg);
                 top: 0px;
-            }    
+            }
+            50%{
+                transform: rotate(360deg);
+                top: 450px;
+            }
+            100% {
+                transform: rotate(360deg);
+                top: 0px;
+            }
+                
         
+        }
+        @keyframes mov2{
+            0% {
+                transform: scale3d(1, 1, 1);
+            }
+        
+            30% {
+                transform: scale3d(0.75, 1.25, 1);
+            }
+        
+            40% {
+                transform: scale3d(1.25, 0.75, 1);
+            }
+        
+            50% {
+                transform: scale3d(0.85, 1.15, 1);
+            }
+        
+            65% {
+                transform: scale3d(1.05, 0.95, 1);
+            }
+        
+            75% {
+                transform: scale3d(0.95, 1.05, 1);
+            }
+        
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+
+        }
+        @keyframes mov3{
+            0% {
+                opacity: 1;
+                transform: scale(0.2);
+            }
+        
+            80% {
+                opacity: .5;
+                transform: scale(1.2);
+            }
+        
+            100% {
+                opacity: 0;
+                transform: scale(2.2);
+            }
+            
+        }
+        @keyframes mov4{
+            0% {
+                transform: scale(0);
+            }
+        
+            100% {
+                transform: scale(2);
+            }
+            
+        }
+        @keyframes mov5{
+            0% {
+                transform: scaleY(0.4);
+            }
+        
+            100% {
+                transform: scaleY(9);
+            }   
+            
         }
 
         
@@ -106,11 +176,20 @@
     </style>
 </head>
 <body>
-    <div class="cuadroBlanco1">Hola mundo</div>
-    <div id="cuadro" class="cuadro2">H</div>
-    <div id="cuadro" class="cuadro3">O</div>
-    <div id="cuadro" class="cuadro4">L</div>
-    <div id="cuadro" class="cuadro5">A</div>
-    
+    <div class="cuadroBlanco1"></div>
+    <div class="cuadroBlanco2"></div>
+
+    <div id="cuadro" class="cuadro2">Y</div>
+    <div id="cuadro" class="cuadro3">I</div>
+    <div id="cuadro" class="cuadro4">S</div>
+    <div id="cuadro" class="cuadro5">U</div>
+    <div id="cuadro" class="cuadro6">S</div>
+
+    <h1 data-aos="flip-up">TEXTO ANIMADO</h1>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script>
+        AOS.init();
+      </script>
 </body>
 </html>
