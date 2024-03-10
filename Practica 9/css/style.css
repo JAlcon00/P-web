@@ -1,0 +1,128 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.myfont {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  text-decoration: none;
+  font-size: medium;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.page-header {
+  background-color: #f5f5f7;
+  color: #333;
+  padding: 50px 0;
+}
+.product-title {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.product-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.product-link {
+  margin-top: 20px;
+}
+.product-link a {
+  text-decoration: none;
+  color: #007bff;
+  margin: 0 10px;
+}
+.product-image {
+  margin-top: 30px;
+}
+
+.footer-background {
+  background-color: #f5f5f7;
+  color: #6e6e73;
+  padding: 40px 0;
+  font-size: 12px;
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2.5;
+}
+.footer-links li a {
+  color: #6e6e73;
+  text-decoration: none;
+}
+.footer-links li a:hover {
+  text-decoration: underline;
+}
+.footer-disclaimer {
+  border-top: 1px solid #d2d2d7;
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 11px;
+}
+.footer-disclaimer a {
+  color: #6e6e73;
+}
+
+.product-container {
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    min-height: 400px; /* Adjust this to fit your content */
+}
+.product-container2 {
+    
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    min-height: 400px; /* Adjust this to fit your content */
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-image {
+  width: 100%;
+  object-fit: cover; /* Para que la imagen cubra todo el contenedor sin perder sus proporciones */
+}
+.product-info {
+  padding: 20px;
+}
+.product-title {
+  font-size: 2em;
+  color: #333; /* Cambiar según sea necesario */
+  
+}
+.product-description {
+  font-size: 1.2em;
+  color: #666; /* Cambiar según sea necesario */
+  margin-bottom: 20px;
+}
+.product-link {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff; /* Cambiar según sea necesario */
+}
+.product-link:hover {
+  text-decoration: underline;
+}
+/* Ajustes responsivos para móviles: las columnas se apilan verticalmente */
+@media (max-width: 768px) {
+  .product-info {
+    text-align: center;
+  }
+}
+
+.h6 {
+
+    color: crimson;
+}    

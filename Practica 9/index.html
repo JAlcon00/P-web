@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple (Mexico)</title>
+    <link rel="icon" type="image/png" href="/Practica 9/img/logo.png" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <!--Bootstrap containers-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!--Bootstrapp Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!--Barra de navegación-->
+    <nav
+      id="navegator"
+      class="navbar navbar-expand-lg"
+      data-bs-theme="dark"
+      style="position: fixed; top: 0; width: 100%; z-index: 1000; background-color: rgba(0, 0, 0, .8);"
+    >
+     <div class="container-fluid" >
+        <a id="logo" class="navbar-brand" href="#"></a>
+        
+
+        <div>
+          <!--Apartado de busqueda-->
+          <div class="collapse" id="searchForm">
+            <div class="navbar-nav">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+          </div>
+
+          <!--Apartado de Bolsa-->
+          <div class="collapse" id="Market">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#">
+                <i class="bi bi-box-seam"> Pedidos </i>
+              </a>
+              <a class="nav-link" href="#">
+                <i class="bi bi-bookmark"> Tus selecciones </i>
+              </a>
+              <a class="nav-link" href="#">
+                <i class="bi bi-gear-wide-connected"> Cuenta </i>
+              </a>
+              <a class="nav-link" href="#">
+                <i class="bi bi-person-circle"> Inicia sesión </i>
+              </a>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="text-light myfont" href="#">Tienda</a>
+              <a class="text-light myfont" href="#">Mac</a>
+              <a class="text-light myfont" href="#">iPad</a>
+              <a class="text-light myfont" href="#">iPhone</a>
+              <a class="text-light myfont" href="#">Watch</a>
+              <a class="text-light myfont" href="#">AirPods</a>
+              <a class="text-light myfont" href="#">TV & Casa</a>
+              <a class="text-light myfont" href="#">Entretenimiento</a>
+              <a class="text-light myfont" href="#">Accesorios</a>
+              <a class="text-light myfont" href="#">Soporte</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+            <!--Boton de Busqueda-->
+            <button
+              class="btn m-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#searchForm"
+              aria-controls="searchForm"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="bi bi-search"></span>
+            </button>
+  
+            <!--Boton Bolsa de compra-->
+            <button
+              class="btn m-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#Market"
+              aria-controls="Market"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="bi bi-bag-fill"></span>
+            </button>
+  
+            <!--Boton de opciones-->
+            <button
+              class="btn m-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid page-header" style="background-image: url('');">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <h1 class="product-title">MacBook Air</h1>
+              <p class="product-subtitle">Superligera. Superchip M3.</p>
+              <p>Consulta la disponibilidad más adelante</p>
+              <div class="product-link">
+                <a href="#" class="btn btn-link btn-sm">Más información ></a>
+                <a href="#" class="btn btn-link btn-sm">Ver precios ></a>
+              </div>
+              <div class="product-image">
+                <img src="https://media.es.wired.com/photos/65e5eeea0f0f20d2dc238c5e/16:9/w_2560%2Cc_limit/MacBook%2520Air.png" class="img-fluid" alt="MacBook Air">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid page-header bg-dark row product-container" style="background-image: url('https://www.apple.com/v/iphone-15-pro/c/images/meta/iphone-15-pro_overview__f8jz7aagka2q_og.png');">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col text-light">
+              <h1 class="hero-title">iPhone 15 Pro</h1>
+              <p class="product-subtitle">Titanio. Resistente y ligero. Tan Pro</p>
+              
+              <div class="product-link">
+                <a href="#" class="btn btn-link btn-sm">Más información ></a>
+                <a href="#" class="btn btn-link btn-sm">Comprar ></a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid page-header row product-container " style="background-image: url('https://www.apple.com/v/iphone-15/c/images/meta/iphone-15_overview__gm0jynt55aai_og.png?202402081150');">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <h1 class="product-title">iPhone 15</h1>
+              <p class="product-subtitle">Nueva cámara. Nuevo diseño. Nuevocionante</p>
+              
+              <div class="product-link">
+                <a href="#" class="btn btn-link btn-sm">Más información ></a>
+                <a href="#" class="btn btn-link btn-sm">Comprar ></a>
+              </div>
+              <div class="product-image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    
+      <div class="container">
+        <div class="row">
+          <!-- Columna para el producto WATCH -->
+          <div class="col product-container" style="background: url('https://www.apple.com/newsroom/images/2023/09/apple-introduces-the-advanced-new-apple-watch-series-9/tile/Apple-Watch-S9-hero-230912.jpg.og.jpg?202402191506') no-repeat center center; background-size: cover;">
+            <div class="product-info">
+              <h2 class="product-title text-light"> WATCH</h2>
+              <h6 class="h6 text-light">Series 9</h6>
+              <p class="product-description text-light">Más poder para brillar más.</p>
+              <a href="#" class="product-link">Más información ></a>
+              <a href="#" class="product-link text">Comprar ></a>
+            </div>
+          </div>
+          
+          <!-- Columna para el producto iPad -->
+          <div class="col product-container" style="background: url('https://www.apple.com/mx/ipad-10.9/images/overview/hero/hero__ecv967jz1y82_large.jpg') no-repeat center center; background-size: cover;">
+            <div class="product-info">
+              <h2 class="product-title">iPad</h2>
+              <p class="product-description">Inspírate. Exprésate. Diviértete.</p>
+              <a href="#" class="product-link">Más información ></a>
+              <a href="#" class="product-link">Comprar ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+   
+    
+
+    <footer class="footer-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="footer-links">
+          <li><a href="#">Tienda</a></li>
+          <!-- Más elementos -->
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="footer-links">
+          <li><a href="#">Cuenta</a></li>
+          <!-- Más elementos -->
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="footer-links">
+          <li><a href="#">Apple Store</a></li>
+          <!-- Más elementos -->
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="footer-links">
+          <li><a href="#">Valores de Apple</a></li>
+          <!-- Más elementos -->
+        </ul>
+      </div>
+    </div>
+    <div class="row footer-disclaimer">
+      <div class="col-12">
+        <p>1. Apple Fitness+ requiere un iPhone 8 o posterior, o un Apple Watch Series 3 o posterior enlazado con un iPhone 6s o posterior. Solo para nuevas suscripciones. $149 al mes al finalizar el periodo de prueba gratis. El plan se renovará automáticamente hasta que se cancele. Sujeto a términos.</p>
+        <p>Más formas de comprar: <a href="#">Busca un Apple Store</a> o <a href="#">un distribuidor</a> cerca de ti. O llama al 001-800-692-7753.</p>
+        <p>Copyright © 2024 Apple Inc. Todos los derechos reservados. <a href="#">Política de privacidad</a> | <a href="#">Ventas y reembolsos</a> | <a href="#">Aviso legal</a> | <a href="#">Mapa del sitio</a></p>
+      </div>
+    </div>
+  </div>
+</footer>  
+      
+
+       
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
