@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+
+    <h3>Práctica 13</h3>
+    <p id="fullname">Parrafo</p>
+
+    <script>
+        let edad = 24;
+        console.log(edad);
+
+        function muestraEdad(){
+            let miedad = edad * 10;
+            return edad;
+        }
+
+        console.log(muestraEdad());
+        console.log(edad);
+
+        function AreaCirculo(radio){
+            const PI = 3.1416;
+            let area = PI * radio * radio;
+            return area;
+        }
+
+        let areaCirculo = AreaCirculo(5);
+        console.log("El area del circulo es: " + areaCirculo);
+
+        function Saludar(){
+            let nombre = "Juan";
+            let apellido = "Perez";
+            let nombreCompleto = nombre + " " + apellido;
+            return "\nhola "+ nombreCompleto;
+        }
+        console.log("El Saludar: " + Saludar());
+
+
+        let estado = true; //boolean
+        let otroEstado = false; // boolean
+        let arreglo = [1,2,3,4,5]; //Array
+        let arreglo2 = ["java","python", "JS"]; // Array
+        let arreglo3 = [1,"java",true]; // Array
+        let objeto = {nombre: "Juan", apellido: "Perez"}; //Object
+
+        let arreglosBooleanos = [true,false, true, false, true]; //boolean
+
+        console.log(estado);
+        console.log(otroEstado);
+        console.log(arreglo[0]);
+        console.log(arreglo2[1]);
+        console.log(arreglo3[2]);
+        console.log(objeto.nombre);
+
+        let nulo = null
+
+        console.log("Resultado de nulo: "+nulo);
+
+        let name = "Tony";
+        let lastname = "Stark";
+        let fullname = name + " " + lastname;
+        console.log(fullname);
+
+        let namescreen = document.getElementById("fullname");
+        namescreen.innerHTML = fullname;
+
+
+
+        /*
+        let miVariable = 10; //Integer
+        let miVariable2 = 20; //Integer
+        let miVariable3 = "Hola mundo"; //String
+        console.log(miVariable, miVariable2, miVariable3);
+        console.log("Resultado: ", miVariable);
+        */
+
+    </script>
+    
+</body>
+</html>

@@ -1,46 +1,86 @@
-*{
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body{
+    background-color: #0e0d1e;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-
-
-}
-body {
-    background: #0e1538;
-
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background: #0e1538;
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #013972; /* Color de fondo oscuro */
+    color: white; /* Color de fuente blanco */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    
 
 }
 
-.container .card {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    background: #0e1538;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+.navbar-brand:hover {
+    text-shadow: 0 1px 30px white ;
     transition: 0.5s;
-    margin: 20px;
+    font-size: 22px;
 }
 
-@media (max-width: 768px) {
-    .container .card {
-        width: 250px;
-        height: 350px;
-    }
-}.nav-gray-transparent {
-  background-color: rgba(128, 128, 128, 0.5); /* Gris transparente */
+.nav-link {
+    color: white; /* Color de fuente blanco para los enlaces */
 }
 
+.nav-link:hover {
+    text-shadow: 0 1px 30px white ;
+    transition: 0.5s;
+    font-size: 15px;
+  
+}
 
+/* Estilos para el icono del menú */
+#menu-icon {
+
+
+    
+}
+
+/* Estilos para la tarjeta */
+.card {
+    margin: 0 auto; /* Centrar horizontalmente */
+    width: 18rem;
+    background-color: #f8f9fa; /* Color de fondo claro */
+    border: 0px; /* Borde */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 50px white; /* Sombra */
+    flex: auto;
+    justify-content: center;
+}
+
+.card-text {
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para los íconos */
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: sub;
+    flex: auto;
+    justify-content: center;
+}
+
+.icon:hover {
+    font-size: 50px;
+    transition: 0.5s;
+    
+
+}
+
+/* Estilos para el contenido principal */
+/* Agrega tus propios estilos aquí */
+
+/* Estilos para las imágenes */
+/* Agrega tus propios estilos aquí */
 
 
