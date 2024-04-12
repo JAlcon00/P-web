@@ -9,11 +9,13 @@ body {
     height: 100vh;
   }
   
-  .card{
-    width: 35rem;
+  .card {
+    max-width: 100%; /* Ancho máximo del contenedor padre */
+    width: 35rem; 
     background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 1px 1px 8px rgb(255, 255, 255);
+    box-shadow: 1px 1px 8px rgba(255, 255, 255, 0.5); /* Sombras más ligeras en dispositivos más pequeños */
   }
+  
   .collapsible {
     background-color: #050505; /* Cambiar el color de fondo a un tono más claro */
     color: #ffffff;
