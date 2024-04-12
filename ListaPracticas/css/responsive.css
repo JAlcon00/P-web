@@ -1,0 +1,62 @@
+  /* Estilos para dispositivos grandes */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  /* Estilos para dispositivos medianos */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  /* Estilos para dispositivos pequeños */
+  @media (max-width: 767px) {
+    .container {
+      max-width: 540px;
+      padding: 0 15px; /* Agrega un relleno a los lados del contenedor en dispositivos pequeños */
+    }
+  }
+  
+  /* Estilos para dispositivos extra pequeños */
+  @media (max-width: 575px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  /* Estilo para el contenedor de la tarjeta */
+.card {
+    margin: 20px; /* Margen estático para dispositivos grandes */
+  }
+  
+  /* Estilos para dispositivos grandes */
+  @media (min-width: 992px) {
+    .card {
+      margin: 20px; /* Margen para dispositivos grandes */
+    }
+  }
+  
+  /* Estilos para dispositivos medianos */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .card {
+      margin: 15px; /* Margen para dispositivos medianos */
+    }
+  }
+  
+  /* Estilos para dispositivos pequeños */
+  @media (max-width: 767px) {
+    .card {
+      margin: 10px; /* Margen para dispositivos pequeños */
+    }
+  }
+  
+  /* Estilos para dispositivos extra pequeños */
+  @media (max-width: 575px) {
+    .card {
+      margin: 5px; /* Margen para dispositivos extra pequeños */
+    }
+  }
+  

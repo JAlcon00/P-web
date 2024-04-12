@@ -1,86 +1,99 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
-body{
-    background-color: #0e0d1e;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Estilos para la barra de navegación */
-.navbar {
-    background-color: #013972; /* Color de fondo oscuro */
-    color: white; /* Color de fuente blanco */
-}
-
-.navbar-brand {
-    font-weight: bold;
-    
-
-}
-
-.navbar-brand:hover {
-    text-shadow: 0 1px 30px white ;
-    transition: 0.5s;
-    font-size: 22px;
-}
-
-.nav-link {
-    color: white; /* Color de fuente blanco para los enlaces */
-}
-
-.nav-link:hover {
-    text-shadow: 0 1px 30px white ;
-    transition: 0.5s;
-    font-size: 15px;
+body {
+    background: conic-gradient(from 45deg, #001aff, #8000ff);
+  }
   
-}
-
-/* Estilos para el icono del menú */
-#menu-icon {
-
-
-    
-}
-
-/* Estilos para la tarjeta */
-.card {
-    margin: 0 auto; /* Centrar horizontalmente */
-    width: 18rem;
-    background-color: #f8f9fa; /* Color de fondo claro */
-    border: 0px; /* Borde */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 50px white; /* Sombra */
-    flex: auto;
+  .container {
+    display: flex;
     justify-content: center;
-}
-
-.card-text {
-    text-align: center; /* Centrar el texto */
-}
-
-/* Estilos para los íconos */
-.icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    vertical-align: sub;
-    flex: auto;
-    justify-content: center;
-}
-
-.icon:hover {
-    font-size: 50px;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card{
+    width: 35rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 8px rgb(255, 255, 255);
+  }
+  .collapsible {
+    background-color: #050505; /* Cambiar el color de fondo a un tono más claro */
+    color: #ffffff;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active,
+  .collapsible:hover {
+    font-size: 20px;
     transition: 0.5s;
+    background-color: #001aff;
+    tex-shadow:  2px 2px 40px rgb(255, 255, 255);
+  }
+  
+  .content {
     
+    padding: 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+  
+  .imagen-circular img {
+    display: block; /* Asegura que la imagen sea un elemento de bloque */
+    margin: auto; /* Establece los márgenes automáticos para centrar la imagen horizontalmente */
+    border-radius: 50%;
+    border: 5px solid #ad5bff;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transform: scale(0.8); /* Ajusta este valor según lo alejado que quieras que se vea la imagen */
+  }
+  
+  .imagen-circular:hover img {
+    transform: scale(0.9);
+    transition: 0.5s;
+  }
+  
+  /* Estilo para los títulos y los iconos dentro del div .col-6 */
+  .col-6 .title,
+  .col-6 .subtitle,
+  .col-6 .icon {
+    color: #050505; /* Color del texto e iconos */
+  }
+  
+  .col-6 .title {
+    font-weight: bold;
+    font-size: 24px; /* Tamaño de fuente para el título */
+    margin-bottom: 10px; /* Margen inferior para separar el título del subtítulo */
+  }
+  
+  .col-6 .subtitle {
+    font-size: 16px; /* Tamaño de fuente para el subtítulo */
+  }
+  
+  /* Estilo para los iconos dentro del div .col-6 */
+  .col-6 .icon {
+    font-size: 38px; /* Tamaño de fuente para los iconos */
+    margin-right: 10px; /* Margen derecho para separar los iconos */
+    padding: 10px; /* Relleno para dar espacio alrededor de los iconos */
+    float: left;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo para los iconos al pasar el cursor sobre ellos */
+  .col-6 .icon:hover {
+    color: #001aff; /* Cambia el color del icono al pasar el cursor sobre él */
+    font-size: 50px; /* Aumenta el tamaño del icono al pasar el cursor sobre él */
+    transform: rotate(360deg); /* Realiza una rotación completa al pasar el cursor sobre el icono */
+  }
+  
+  .collapsible-content {
+    display: none;
+    transition: all 0.5s ease; /* Transición de 0.5 segundos con un efecto suave */
+  }
+  
 
-}
-
-/* Estilos para el contenido principal */
-/* Agrega tus propios estilos aquí */
-
-/* Estilos para las imágenes */
-/* Agrega tus propios estilos aquí */
-
-
+  
