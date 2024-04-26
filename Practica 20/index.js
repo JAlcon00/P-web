@@ -91,3 +91,21 @@ for (let i = 0; i < movies.length; i++) {
     // Agregar la película al contenedor
     listaPeliculas.appendChild(peliculaDiv);
 }
+
+
+j= 1;
+while(j <= 30){
+    console.log(j);
+    j++;
+}
+
+let result = 0;
+let i = 0;
+
+do {
+    i += 1;
+    result = result + 1;
+
+}while(i < 5);
+
+console.log("El resultado es: ",result);
