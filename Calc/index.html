@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+
+    <link type="text/css" rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <script src="index.js"></script>
+
+
+</head>
+
+<body>
+    <h1 class="title">Calc/Stack</h1>
+
+
+    <div id="appBg">
+        <form name="calculator">
+            <input type="textfield" name="ans" value="" autocomplete="off" readonly>
+            <input type="button" value="^" onclick="addToInput('^')" class="gray">
+            <input type="button" value="(" onclick="addToInput('(')" class="gray">
+            <input type="button" value=")" onclick="addToInput(')')" class="gray">
+            <input type="button" value="." onclick="addToInput('.')" class="gray">
+            <input type="button" value="w" onclick="addToInput('w')">
+            <input type="button" value="x" onclick="addToInput('x')">
+            <input type="button" value="y" onclick="addToInput('y')">
+            <input type="button" value="z" onclick="addToInput('z')">
+            <input type="button" value="7" onclick="addToInput('7')" class="gray">
+            <input type="button" value="8" onclick="addToInput('8')" class="gray">
+            <input type="button" value="9" onclick="addToInput('9')" class="gray">
+            <input type="button" value="+" onclick="addToInput('+')" class="orange">
+            <input type="button" value="4" onclick="addToInput('4')" class="gray">
+            <input type="button" value="5" onclick="addToInput('5')" class="gray">
+            <input type="button" value="6" onclick="addToInput('6')" class="gray">
+            <input type="button" value="-" onclick="addToInput('-')" class="orange">
+            <input type="button" value="1" onclick="addToInput('1')" class="gray">
+            <input type="button" value="2" onclick="addToInput('2')" class="gray">
+            <input type="button" value="3" onclick="addToInput('3')" class="gray">
+            <input type="button" value="X" onclick="addToInput('X')" class="orange">
+            <input type="button" value="0" onclick="addToInput('0')" class="gray">
+            <input type="reset" value="C" onclick="clearInput()">
+            <input type="button" value="=" onclick="calculate()">
+            <input type="button" value="/" onclick="addToInput('/')" class="orange">
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
