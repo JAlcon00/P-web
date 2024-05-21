@@ -1,45 +1,55 @@
-.title{
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: #000000;
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#appBg, #variables {
+    width: 48%;
+}
+
+/* Estilo para el formulario de variables */
+#variables label, 
+#variables input, 
+#variables button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: #909090;
     text-align: center;
-    margin-bottom: 20px;
 
 }
 
-
-
-#appBg{
-    margin: 0 auto;
-    height: 580px;
+#appBg {
+    margin: auto;
+    height: 630px;
     width: 300px;
     border: 1px solid #000000;
     border-radius: 10px;
     background-color: #000000;
-    
-
 }
 
-#appBg input[type=textfield]{
-    height: 25%;
+#appBg input[type=textfield] {
+    height: 15%;
     border-radius: 10px;
     width: 280px;
     cursor: default;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #000000;
     color: #ffffff;
     font-size: 50px;
     text-align: right;
     border: none;
     outline: none;
-
 }
 
-#appBg form{
+#appBg form {
     height: 100%;
     width: 100%;
-    
 }
 
 #appBg input[type=button], input[type=reset] {
@@ -63,4 +73,9 @@
 #appBg .gray {
     background-color: rgb(51, 51, 51) !important;
     color: white !important;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos al final (derecha) */
 }

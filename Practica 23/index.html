@@ -24,7 +24,7 @@
 
             <div class="col-12 col-md-6 text-center">
                 <h1>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoModal">
+                    <button class="btn btn-outline-success form-control rounded-pill" data-bs-toggle="modal" data-bs-target="#nuevoModal">
                         <i class="bi bi-file-earmark-plus-fill"></i>&nbsp;&nbsp;
                         Crear tarea
 
@@ -74,8 +74,54 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                        <button type="submit" class="btn btn-primary">Agregar tarea</button>
+                        <button id="btnEdit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                        <button id="btnGuardar" type="submit" class="btn btn-primary">Agregar tarea</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="formEdit" name="formEdit" action="">
+
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar la tarea</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="nombre">Nombre </label>
+                                <input class="form-control" type="text" id="nombreEdit" name="nombre" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="nombre">Fecha </label>
+                                <input class="form-control" type="date" id="fechaEdit" name="fecha" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="nombre">Descripción</label>
+                                <textarea name="descripcionEdit" id="descripcionEdit" rows="5" class="form-control" required></textarea>
+                                
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnEdit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                        <button id="btnGuardarEditar" type="submit" class="btn btn-primary">Guardar tarea</button>
                     </div>
                 </div>
             </div>
