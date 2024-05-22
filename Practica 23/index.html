@@ -5,29 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../Practica 23/css/styles.css">
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 text-center">
                 <h1>
                     <i class="bi bi-card-list"></i>&nbsp;
-                    Lista de tareas
+                    Música y videos
                 </h1>
             </div>
-
             <div class="col-12 col-md-6 text-center">
                 <h1>
                     <button class="btn btn-outline-success form-control rounded-pill" data-bs-toggle="modal" data-bs-target="#nuevoModal">
                         <i class="bi bi-file-earmark-plus-fill"></i>&nbsp;&nbsp;
-                        Crear tarea
-
+                        Agrega un video o una canción
                     </button>
                 </h1>
             </div>
@@ -35,9 +31,8 @@
         <div id="listaTareas"></div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Crear -->
     <form id="formAdd" name="formAdd" action="">
-
         <div class="modal fade" id="nuevoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -46,35 +41,45 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        
-
                         <div class="row">
                             <div class="col-12">
                                 <label for="nombre">Nombre </label>
                                 <input class="form-control" type="text" id="nombre" name="nombre" required>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-12">
-                                <label for="nombre">Fecha </label>
+                                <label for="fecha">Fecha </label>
                                 <input class="form-control" type="date" id="fecha" name="fecha" required>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-12">
-                                <label for="nombre">Descripción</label>
+                                <label for="descripcion">Descripción</label>
                                 <textarea name="descripcion" id="descripcion" rows="5" class="form-control" required></textarea>
-                                
                             </div>
                         </div>
-
-                        
-
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="videoSearch">Buscar Video en YouTube</label>
+                                <input class="form-control" type="text" id="videoSearch" name="videoSearch">
+                                <button class="btn btn-primary mt-2" type="button" onclick="buscarVideoYouTube()">Buscar</button>
+                                <div id="videoResults"></div>
+                                <input type="hidden" id="videoUrl" name="videoUrl">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="audioSearch">Buscar Música en Spotify</label>
+                                <input class="form-control" type="text" id="audioSearch" name="audioSearch">
+                                <button class="btn btn-primary mt-2" type="button" onclick="buscarMusicaSpotify()">Buscar</button>
+                                <div id="audioResults"></div>
+                                <input type="hidden" id="audioUrl" name="audioUrl">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="btnEdit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                        <button id="btnSalir" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
                         <button id="btnGuardar" type="submit" class="btn btn-primary">Agregar tarea</button>
                     </div>
                 </div>
@@ -82,8 +87,8 @@
         </div>
     </form>
 
+    <!-- Modal Editar -->
     <form id="formEdit" name="formEdit" action="">
-
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -92,35 +97,45 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        
-
                         <div class="row">
                             <div class="col-12">
-                                <label for="nombre">Nombre </label>
+                                <label for="nombreEdit">Nombre </label>
                                 <input class="form-control" type="text" id="nombreEdit" name="nombre" required>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-12">
-                                <label for="nombre">Fecha </label>
+                                <label for="fechaEdit">Fecha </label>
                                 <input class="form-control" type="date" id="fechaEdit" name="fecha" required>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-12">
-                                <label for="nombre">Descripción</label>
+                                <label for="descripcionEdit">Descripción</label>
                                 <textarea name="descripcionEdit" id="descripcionEdit" rows="5" class="form-control" required></textarea>
-                                
                             </div>
                         </div>
-
-                        
-
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="videoSearchEdit">Buscar Video en YouTube</label>
+                                <input class="form-control" type="text" id="videoSearchEdit" name="videoSearchEdit">
+                                <button class="btn btn-primary mt-2" type="button" onclick="buscarVideoYouTube()">Buscar</button>
+                                <div id="videoResultsEdit"></div>
+                                <input type="hidden" id="videoUrlEdit" name="videoUrlEdit">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="audioSearchEdit">Buscar Música en Spotify</label>
+                                <input class="form-control" type="text" id="audioSearchEdit" name="audioSearchEdit">
+                                <button class="btn btn-primary mt-2" type="button" onclick="buscarMusicaSpotify()">Buscar</button>
+                                <div id="audioResultsEdit"></div>
+                                <input type="hidden" id="audioUrlEdit" name="audioUrlEdit">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="btnEdit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                        <button id="btnSalirEdit" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
                         <button id="btnGuardarEditar" type="submit" class="btn btn-primary">Guardar tarea</button>
                     </div>
                 </div>
@@ -128,14 +143,8 @@
         </div>
     </form>
 
-
-    
-
     <script src="../Practica 23/js/index.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
