@@ -1,31 +1,216 @@
-let listaProductos = document.querySelector('#listaProductos');
-let listaCategorias = document.querySelector('#listaCategorias');
-let carrito = [];
+class CoolStore {
+    constructor() {
+        this.listaProductos = document.querySelector('#listaProductos');
+        this.listaCategorias = document.querySelector('#listaCategorias');
+        this.suggestionsList = document.getElementById('suggestionsList');
+        this.carrito = [];
+        this.URL = "https://fakestoreapi.com/products/";
+        this.productosObtenidos = [];
+        this.init();
+    }
 
-const URL = "https://fakestoreapi.com/products/";
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.cargarCategorias();
+            this.agregarEventListeners();
+            this.obtenerProductos();
+            this.aplicarTemaGuardado();
+        });
+    }
 
-fetch(URL)
-    .then(res => res.json())
-    .then(productosObtenidos => { 
-        console.log(productosObtenidos);
-        listaProductos.innerHTML = "";
-        productosObtenidos.forEach( (producto, indice) => {
-            listaProductos.innerHTML += ` 
-            <div class="col-12 col-md-3 py-5">
-                <div class="card">
-                    <img src="${producto.image}" class="p-3 imagenProducto card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${ producto.title.slice(0,30) }</h5>
-                        <p class="card-text">${ producto.description.slice(0,100) }</p>
-                        <p class="card-text text-danger">${ producto.price }</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div> 
-            `;
+    cargarCategorias() {
+        const categorias = ['Electronics', 'Jewelery', "Men's clothing", "Women's clothing"];
+        categorias.forEach(categoria => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.className = 'dropdown-item';
+            a.href = '#';
+            a.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+            a.addEventListener('click', () => this.filtrarPorCategoria(categoria));
+            li.appendChild(a);
+            this.listaCategorias.appendChild(li);
+        });
+    }
+
+    agregarEventListeners() {
+        const searchForm = document.querySelector('form[role="search"]');
+        const searchInput = document.getElementById('searchInput');
+        searchForm.addEventListener('submit', (event) => this.buscarProductos(event));
+        searchInput.addEventListener('input', () => this.mostrarSugerencias(searchInput.value));
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' || searchInput.value === '') {
+                this.limpiarSugerencias();
+                this.renderProductos(this.productosObtenidos);
+            }
         });
 
-});
+        const themeToggleButton = document.getElementById('themeToggleButton');
+        themeToggleButton.addEventListener('click', () => this.toggleTema());
+    }
 
-fetch(URL)
+    async obtenerProductos() {
+        try {
+            const res = await fetch(this.URL);
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
+            this.productosObtenidos = await res.json();
+            this.renderProductos(this.productosObtenidos);
+        } catch (error) {
+            console.error('Fetch error:', error);
+            alert('Hubo un problema al cargar los productos. Por favor, intente nuevamente más tarde.');
+        }
+    }
 
+    renderProductos(productos) {
+        this.listaProductos.innerHTML = '';
+        productos.forEach(producto => {
+            const col = document.createElement('div');
+            col.className = 'col-sm-6 col-md-4 col-lg-3 d-flex'; // Ajustar el ancho de las tarjetas y usar flexbox
+            col.innerHTML = `
+                <div class="card flex-fill d-flex flex-column">
+                    <img src="${producto.image}" class="card-img-top imagenProducto" alt="${producto.title}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${producto.title}</h5>
+                        <p class="card-text">${producto.description.slice(0, 100)}...</p>
+                        <p class="price">$${producto.price} USD</p>
+                        <button class="btn btn-warning mt-auto" onclick="store.agregarAlCarrito(${producto.id})">
+                        Comprar
+                        <i class="bi bi-cart-plus-fill" id="cartB"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            this.listaProductos.appendChild(col);
+        });
+    }
+
+    filtrarPorCategoria(categoria) {
+        const productosFiltrados = this.productosObtenidos.filter(producto => producto.category === categoria.toLowerCase());
+        this.renderProductos(productosFiltrados);
+    }
+
+    buscarProductos(event) {
+        event.preventDefault();
+        const query = event.target.querySelector('input[type="search"]').value.toLowerCase();
+        if (query === '') {
+            this.renderProductos(this.productosObtenidos);
+        } else {
+            const productosFiltrados = this.productosObtenidos.filter(producto => producto.title.toLowerCase().includes(query));
+            this.renderProductos(productosFiltrados);
+        }
+    }
+
+    mostrarSugerencias(query) {
+        this.suggestionsList.innerHTML = '';
+        if (query.length > 0) {
+            const productosFiltrados = this.productosObtenidos.filter(producto => producto.title.toLowerCase().includes(query));
+            productosFiltrados.forEach(producto => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = producto.title;
+                li.addEventListener('click', () => {
+                    document.getElementById('searchInput').value = producto.title;
+                    this.renderProductos([producto]);
+                    this.limpiarSugerencias();
+                });
+                this.suggestionsList.appendChild(li);
+            });
+        }
+    }
+
+    limpiarSugerencias() {
+        this.suggestionsList.innerHTML = '';
+    }
+
+    agregarAlCarrito(idProducto) {
+        const producto = this.productosObtenidos.find(producto => producto.id === idProducto);
+        this.carrito.push(producto);
+        this.actualizarCarrito();
+    }
+
+    eliminarDelCarrito(idProducto) {
+        const index = this.carrito.findIndex(producto => producto.id === idProducto);
+        if (index !== -1) {
+            this.carrito.splice(index, 1); // Elimina solo una instancia del producto
+        }
+        this.actualizarCarrito();
+    }
+
+    actualizarCarrito() {
+        const cartItems = document.getElementById('cartItems');
+        cartItems.innerHTML = '';
+        let total = 0;
+        this.carrito.forEach(producto => {
+            total += producto.price;
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <img src="${producto.image}" alt="${producto.title}" class="img-thumbnail" style="width: 50px; height: 50px; margin-right: 10px;">
+                    <div>
+                        <h6>${producto.title.slice(0, 30)}</h6>
+                        <p>$${producto.price} USD</p>
+                    </div>
+                </div>
+                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})">Eliminar</button>
+            `;
+            cartItems.appendChild(li);
+        });
+
+        const totalElement = document.createElement('li');
+        totalElement.className = 'list-group-item d-flex justify-content-between align-items-center';
+        totalElement.innerHTML = `
+            <strong>Total:</strong>
+            <span>$${total.toFixed(2)} USD</span>
+        `;
+        cartItems.appendChild(totalElement);
+
+        document.getElementById('cartCount').textContent = this.carrito.length;
+    }
+
+    aplicarTemaGuardado() {
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+        } else {
+            body.classList.add('light-theme'); // Tema predeterminado
+        }
+
+        this.actualizarIconos();
+    }
+
+    toggleTema() {
+        const body = document.body;
+
+        body.classList.toggle('light-theme');
+        body.classList.toggle('dark-theme');
+
+        if (body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark-theme');
+        } else {
+            localStorage.setItem('theme', 'light-theme');
+        }
+
+        this.actualizarIconos();
+    }
+
+    actualizarIconos() {
+        const body = document.body;
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+
+        if (body.classList.contains('dark-theme')) {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'inline';
+        } else {
+            sunIcon.style.display = 'inline';
+            moonIcon.style.display = 'none';
+        }
+    }
+}
+
+// Inicializar la tienda
+const store = new CoolStore();

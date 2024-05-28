@@ -1,11 +1,265 @@
-.imagenProducto{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    
-
-
+/* Estilos generales */
+body {
+    transition: background-color 0.3s, color 0.3s;
 }
 
+/* Tema claro */
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
 
+/* Tema oscuro */
+body.dark-theme {
+    
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+/* Estilos del navbar según el tema */
+body.light-theme .navbar {
+    background-color: #f8f9fa; /* Color del navbar en el tema claro */
+    color: #000;
+}
+
+body.dark-theme .navbar {
+    background-color: #232f3e; /* Color del navbar en el tema oscuro */
+    color: #fff;
+}
+
+body.light-theme .navbar .nav-link {
+    color: #000; /* Color de los enlaces en el tema claro */
+}
+
+body.dark-theme .navbar .nav-link {
+    color: #fff; /* Color de los enlaces en el tema oscuro */
+}
+
+body.light-theme .navbar .navbar-brand {
+    color: #ff9900; /* Color de la marca en el tema claro */
+}
+
+body.dark-theme .navbar .navbar-brand {
+    color: #ff9900; /* Color de la marca en el tema oscuro */
+}
+
+/* Estilos generales */
+body.light-theme #moonIcon,
+body.dark-theme #sunIcon {
+    display: none;
+    cursor: pointer;
+}
+
+/* Cambiar color de los iconos según el tema */
+body.light-theme #sunIcon,
+body.light-theme #moonIcon {
+    color: #000; /* Color del icono en el tema claro */
+}
+
+body.dark-theme #sunIcon,
+body.dark-theme #moonIcon {
+    color: #fff; /* Color del icono en el tema oscuro */
+}
+
+/* Animación para aumentar el tamaño al pasar el cursor */
+#sunIcon:hover,
+#moonIcon:hover {
+    transform: scale(1.5);
+    transition: transform 0.5s;
+}
+
+/* Estilos adicionales para componentes */
+.navbar-light .navbar-brand {
+    font-weight: bold;
+    color: #ff9900;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #555;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #ff9900;
+}
+
+.navbar-search {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.navbar-search input[type="search"] {
+    width: 100%;
+    border-radius: 10px 10px 10px 10px;
+    padding: 0.5rem;
+    outline: none;
+}
+
+.navbar-search button {
+    border: 2px solid #ff9900;
+    border-left: 0;
+    background-color: #ff9900;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    padding: 0.5rem 1rem;
+    border-radius: 15%;
+}
+
+#cartButton {
+    display: flex;
+    align-items: center;
+}
+
+#cartButton i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: rgb(0, 200, 40);
+}
+
+#cartCount {
+    font-size: 1.2rem;
+    color:  rgb(0, 200, 40);
+}
+
+/* Estilos adicionales para la imagen del logo */
+.logo {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Ajusta la altura de las imágenes */
+    object-fit: contain; /* Mantiene la proporción de la imagen sin recortarla */
+    padding: 10px; /* Añade padding para asegurar separación */
+    background-color: #fff; /* Fondo blanco para las imágenes */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho y alto */
+}
+
+.card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.card-title {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #333;
+    flex-shrink: 0;
+}
+
+.card-text {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Hace que el texto crezca para llenar el espacio disponible */
+}
+
+.price {
+    font-size: 1.2em;
+    color: #e68a00;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.btn-primary {
+    background-color: #ff9900;
+    border-color: #ff9900;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 0.25rem;
+    margin-top: auto; /* Empuja el botón al final del contenedor flex */
+    flex-shrink: 0;
+}
+
+.btn-primary:hover {
+    background-color: #e68a00;
+    border-color: #e68a00;
+}
+
+#suggestionsList {
+    position: absolute;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    margin-top: 5rem; /* Ajusta el margen superior para separar las sugerencias del campo de búsqueda */
+}
+
+#suggestionsList .list-group-item {
+    cursor: pointer;
+}
+
+#cartB{
+    margin-left: 30px;
+}
+
+/* Footer */
+.footer {
+    background-color: #232f3e;
+    color: #ffffff;
+    padding-top: 20px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+.footer-top {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #3a4553;
+}
+
+.footer-top h5 {
+    color: #ff9900;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    padding: 10px 0;
+    background-color: #131a22;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
 
