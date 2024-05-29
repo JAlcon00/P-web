@@ -153,7 +153,9 @@ class CoolStore {
                         <p>$${producto.price} USD</p>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})">Eliminar</button>
+                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})">
+                <i class="bi bi-trash3-fill"></i>
+                </button>
             `;
             cartItems.appendChild(li);
         });

@@ -50,6 +50,7 @@ body.dark-theme #sunIcon {
     cursor: pointer;
 }
 
+
 /* Cambiar color de los iconos según el tema */
 body.light-theme #sunIcon,
 body.light-theme #moonIcon {
@@ -83,11 +84,13 @@ body.dark-theme #moonIcon {
 }
 
 .navbar-search {
+    position: relative; /* Asegura que los elementos absolutos dentro se posicionen respecto a este contenedor */
     display: flex;
     flex-grow: 1;
     align-items: center;
     margin-left: 50px;
 }
+
 
 .navbar-search input[type="search"] {
     width: 100%;
@@ -202,11 +205,26 @@ body.dark-theme #moonIcon {
 #suggestionsList {
     position: absolute;
     z-index: 1000;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%;
-    margin-top: 5rem; /* Ajusta el margen superior para separar las sugerencias del campo de búsqueda */
+    max-height: 200px; 
+    overflow-y: auto; 
+    width: 100%; 
+    top: 100%; 
+    left: 0;
+    margin-top: 0.5rem;
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    scrollbar-width: none; /* Para Firefox */
 }
+
+#suggestionsList::-webkit-scrollbar {
+    display: none; /* Para Chrome, Safari y Opera */
+}
+
+#suggestionsList .list-group-item {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
 
 #suggestionsList .list-group-item {
     cursor: pointer;
