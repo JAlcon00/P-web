@@ -2,6 +2,10 @@
 body {
     transition: background-color 0.3s, color 0.3s;
 }
+.container{
+    margin-top: 100px;
+
+}
 
 /* Tema claro */
 body.light-theme {
