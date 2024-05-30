@@ -74,7 +74,7 @@ class CoolStore {
                         <h5 class="card-title">${producto.title}</h5>
                         <p class="card-text">${producto.description.slice(0, 100)}...</p>
                         <p class="price">$${producto.price} USD</p>
-                        <button class="btn btn-warning mt-auto" onclick="store.agregarAlCarrito(${producto.id})">
+                        <button class="btn btn-success mt-auto" onclick="store.agregarAlCarrito(${producto.id})">
                         Comprar
                         <i class="bi bi-cart-plus-fill" id="cartB"></i>
                         </button>

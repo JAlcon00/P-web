@@ -20,6 +20,8 @@ body.dark-theme {
     color: #ffffff;
 }
 
+
+
 /* Estilos del navbar según el tema */
 body.light-theme .navbar {
     background-color: #f8f9fa; /* Color del navbar en el tema claro */
@@ -40,11 +42,11 @@ body.dark-theme .navbar .nav-link {
 }
 
 body.light-theme .navbar .navbar-brand {
-    color: #ff9900; /* Color de la marca en el tema claro */
+    color: #292929; /* Color de la marca en el tema claro */
 }
 
 body.dark-theme .navbar .navbar-brand {
-    color: #ff9900; /* Color de la marca en el tema oscuro */
+    color: #ffffff; /* Color de la marca en el tema oscuro */
 }
 
 /* Estilos generales */
@@ -76,7 +78,7 @@ body.dark-theme #moonIcon {
 /* Estilos adicionales para componentes */
 .navbar-light .navbar-brand {
     font-weight: bold;
-    color: #ff9900;
+    color: #fe5f5f;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -84,7 +86,7 @@ body.dark-theme #moonIcon {
 }
 
 .navbar-light .navbar-nav .nav-link.active {
-    color: #ff9900;
+    color: #bababa;
 }
 
 .navbar-search {
@@ -104,9 +106,9 @@ body.dark-theme #moonIcon {
 }
 
 .navbar-search button {
-    border: 2px solid #ff9900;
+    border: 2px solid #fe5f5f;
     border-left: 0;
-    background-color: #ff9900;
+    background-color: #fe5f5f;
     color: white;
     border-radius: 0 4px 4px 0;
     padding: 0.5rem 1rem;
@@ -191,8 +193,8 @@ body.dark-theme #moonIcon {
 }
 
 .btn-primary {
-    background-color: #ff9900;
-    border-color: #ff9900;
+    background-color: #fe5f5f;
+    border-color: #fe5f5f;
     color: #fff;
     padding: 10px 20px;
     font-size: 1em;
