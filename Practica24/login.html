@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login COOL STORE</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #000000;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .social-login {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-login img {
+            width: 40px;
+            margin: 0 10px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .btn a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container mt-5">
+            <img src="/Practica24/img/LogoC.svg" alt="COOL STORE Logo" class="logo">
+            <h2>Ingresa</h2>
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Correo" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-dark">
+                    <a href="/Practica24/index.html" >Inicia sesión</a>
+                </button>
+            </form>
+            <div class="social-login">
+                <img src="https://cdn-icons-png.flaticon.com/256/2702/2702602.png" alt="Google">
+                <img src="https://cdn-icons-png.flaticon.com/512/154/154870.png" alt="Apple">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png" alt="Windows">
+            </div>
+            <button class="btn btn-light mt-3">Regresa</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

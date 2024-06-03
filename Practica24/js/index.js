@@ -46,6 +46,13 @@ class CoolStore {
 
         const themeToggleButton = document.getElementById('themeToggleButton');
         themeToggleButton.addEventListener('click', () => this.toggleTema());
+
+        // Accesibilidad del teclado para el botón de tema
+        themeToggleButton.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                themeToggleButton.click();
+            }
+        });
     }
 
     async obtenerProductos() {
@@ -68,19 +75,20 @@ class CoolStore {
             const col = document.createElement('div');
             col.className = 'col-sm-6 col-md-4 col-lg-3 d-flex'; // Ajustar el ancho de las tarjetas y usar flexbox
             col.innerHTML = `
-                <div class="card flex-fill d-flex flex-column">
-                    <img src="${producto.image}" class="card-img-top imagenProducto" alt="${producto.title}">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${producto.title}</h5>
-                        <p class="card-text">${producto.description.slice(0, 100)}...</p>
-                        <p class="price">$${producto.price} USD</p>
-                        <button class="btn btn-success mt-auto" onclick="store.agregarAlCarrito(${producto.id})">
-                        Comprar
-                        <i class="bi bi-cart-plus-fill" id="cartB"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
+    <div class="card flex-fill d-flex flex-column" role="region" aria-labelledby="product-${producto.id}">
+        <img src="${producto.image}" class="card-img-top imagenProducto" alt="${producto.title}">
+        <div class="card-body d-flex flex-column">
+            <h5 id="product-${producto.id}" class="card-title">${producto.title}</h5>
+            <p class="card-text">${producto.description.slice(0, 100)}...</p>
+            <p class="price">$${producto.price} USD</p>
+            <button class="btn btn-success mt-auto" onclick="store.agregarAlCarrito(${producto.id})" aria-label="Comprar ${producto.title}">
+                Comprar
+                <i class="bi bi-cart-plus-fill" id="cartB"></i>
+            </button>
+        </div>
+    </div>
+`;
+
             this.listaProductos.appendChild(col);
         });
     }
@@ -114,6 +122,7 @@ class CoolStore {
                     this.renderProductos([producto]);
                     this.limpiarSugerencias();
                 });
+                li.setAttribute('role', 'option'); // Para accesibilidad
                 this.suggestionsList.appendChild(li);
             });
         }
@@ -153,7 +162,7 @@ class CoolStore {
                         <p>$${producto.price} USD</p>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})">
+                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})" aria-label="Eliminar ${producto.title} del carrito">
                 <i class="bi bi-trash3-fill"></i>
                 </button>
             `;
@@ -168,7 +177,9 @@ class CoolStore {
         `;
         cartItems.appendChild(totalElement);
 
-        document.getElementById('cartCount').textContent = this.carrito.length;
+        const cartCountElement = document.getElementById('cartCount');
+        cartCountElement.textContent = this.carrito.length;
+        cartCountElement.setAttribute('aria-live', 'polite'); // Informar a los lectores de pantalla del cambio
     }
 
     aplicarTemaGuardado() {

@@ -2,6 +2,15 @@
 body {
     transition: background-color 0.3s, color 0.3s;
 }
+
+button:focus, 
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: 2px solid #005fcc;
+    outline-offset: 2px;
+}
+/* Estilos de la barra de navegación */
 .container{
     margin-top: 100px;
 
