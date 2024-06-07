@@ -4,22 +4,59 @@ class CoolStore {
         this.listaCategorias = document.querySelector('#listaCategorias');
         this.suggestionsList = document.getElementById('suggestionsList');
         this.carrito = [];
-        this.URL = "https://fakestoreapi.com/products/";
+        this.URL = "http://localhost:3000/productos"; // URL para usar tu API
         this.productosObtenidos = [];
         this.init();
     }
 
     init() {
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            await this.obtenerProductos();
             this.cargarCategorias();
             this.agregarEventListeners();
-            this.obtenerProductos();
             this.aplicarTemaGuardado();
         });
     }
 
+    async obtenerProductos() {
+        try {
+            const res = await fetch(this.URL);
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
+            this.productosObtenidos = await res.json();
+            this.renderProductos(this.productosObtenidos);
+        } catch (error) {
+            console.error('Fetch error:', error);
+            alert('Hubo un problema al cargar los productos. Por favor, intente nuevamente más tarde.');
+        }
+    }
+
+    renderProductos(productos) {
+        this.listaProductos.innerHTML = '';
+        productos.forEach(producto => {
+            const col = document.createElement('div');
+            col.className = 'col-sm-6 col-md-4 col-lg-3 d-flex'; // Ajustar el ancho de las tarjetas y usar flexbox
+            col.innerHTML = `
+                <div class="card flex-fill d-flex flex-column" role="region" aria-labelledby="product-${producto.id}">
+                    <img src="${producto.image}" class="card-img-top imagenProducto" alt="${producto.name}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 id="product-${producto.id}" class="card-title">${producto.title}</h5>
+                        <p class="card-text">${producto.description.slice(0, 100)}...</p>
+                        <p class="price">$${producto.price.toFixed(2)} USD</p>
+                        <button class="btn btn-success mt-auto" onclick="store.agregarAlCarrito(${producto.id})" aria-label="Comprar ${producto.name}">
+                            Comprar
+                            <i class="bi bi-cart-plus-fill" id="cartB"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            this.listaProductos.appendChild(col);
+        });
+    }
+
     cargarCategorias() {
-        const categorias = ['Electronics', 'Jewelery', "Men's clothing", "Women's clothing"];
+        const categorias = ['Electronics'];
         categorias.forEach(categoria => {
             const li = document.createElement('li');
             const a = document.createElement('a');
@@ -55,46 +92,8 @@ class CoolStore {
         });
     }
 
-    async obtenerProductos() {
-        try {
-            const res = await fetch(this.URL);
-            if (!res.ok) {
-                throw new Error('Network response was not ok ' + res.statusText);
-            }
-            this.productosObtenidos = await res.json();
-            this.renderProductos(this.productosObtenidos);
-        } catch (error) {
-            console.error('Fetch error:', error);
-            alert('Hubo un problema al cargar los productos. Por favor, intente nuevamente más tarde.');
-        }
-    }
-
-    renderProductos(productos) {
-        this.listaProductos.innerHTML = '';
-        productos.forEach(producto => {
-            const col = document.createElement('div');
-            col.className = 'col-sm-6 col-md-4 col-lg-3 d-flex'; // Ajustar el ancho de las tarjetas y usar flexbox
-            col.innerHTML = `
-    <div class="card flex-fill d-flex flex-column" role="region" aria-labelledby="product-${producto.id}">
-        <img src="${producto.image}" class="card-img-top imagenProducto" alt="${producto.title}">
-        <div class="card-body d-flex flex-column">
-            <h5 id="product-${producto.id}" class="card-title">${producto.title}</h5>
-            <p class="card-text">${producto.description.slice(0, 100)}...</p>
-            <p class="price">$${producto.price} USD</p>
-            <button class="btn btn-success mt-auto" onclick="store.agregarAlCarrito(${producto.id})" aria-label="Comprar ${producto.title}">
-                Comprar
-                <i class="bi bi-cart-plus-fill" id="cartB"></i>
-            </button>
-        </div>
-    </div>
-`;
-
-            this.listaProductos.appendChild(col);
-        });
-    }
-
     filtrarPorCategoria(categoria) {
-        const productosFiltrados = this.productosObtenidos.filter(producto => producto.category === categoria.toLowerCase());
+        const productosFiltrados = this.productosObtenidos.filter(producto => producto.categoria.toLowerCase() === categoria.toLowerCase());
         this.renderProductos(productosFiltrados);
     }
 
@@ -104,7 +103,7 @@ class CoolStore {
         if (query === '') {
             this.renderProductos(this.productosObtenidos);
         } else {
-            const productosFiltrados = this.productosObtenidos.filter(producto => producto.title.toLowerCase().includes(query));
+            const productosFiltrados = this.productosObtenidos.filter(producto => producto.name.toLowerCase().includes(query));
             this.renderProductos(productosFiltrados);
         }
     }
@@ -112,13 +111,13 @@ class CoolStore {
     mostrarSugerencias(query) {
         this.suggestionsList.innerHTML = '';
         if (query.length > 0) {
-            const productosFiltrados = this.productosObtenidos.filter(producto => producto.title.toLowerCase().includes(query));
+            const productosFiltrados = this.productosObtenidos.filter(producto => producto.name.toLowerCase().includes(query));
             productosFiltrados.forEach(producto => {
                 const li = document.createElement('li');
                 li.className = 'list-group-item';
-                li.textContent = producto.title;
+                li.textContent = producto.name;
                 li.addEventListener('click', () => {
-                    document.getElementById('searchInput').value = producto.title;
+                    document.getElementById('searchInput').value = producto.name;
                     this.renderProductos([producto]);
                     this.limpiarSugerencias();
                 });
@@ -156,13 +155,13 @@ class CoolStore {
             li.className = 'list-group-item d-flex justify-content-between align-items-center';
             li.innerHTML = `
                 <div class="d-flex align-items-center">
-                    <img src="${producto.image}" alt="${producto.title}" class="img-thumbnail" style="width: 50px; height: 50px; margin-right: 10px;">
+                    <img src="${producto.image}" alt="${producto.name}" class="img-thumbnail" style="width: 50px; height: 50px; margin-right: 10px;">
                     <div>
-                        <h6>${producto.title.slice(0, 30)}</h6>
-                        <p>$${producto.price} USD</p>
+                        <h6>${producto.name.slice(0, 30)}</h6>
+                        <p>$${producto.price.toFixed(2)} USD</p>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})" aria-label="Eliminar ${producto.title} del carrito">
+                <button class="btn btn-danger btn-sm" onclick="store.eliminarDelCarrito(${producto.id})" aria-label="Eliminar ${producto.name} del carrito">
                 <i class="bi bi-trash3-fill"></i>
                 </button>
             `;

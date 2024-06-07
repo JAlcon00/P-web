@@ -10,11 +10,6 @@ textarea:focus {
     outline: 2px solid #005fcc;
     outline-offset: 2px;
 }
-/* Estilos de la barra de navegación */
-.container{
-    margin-top: 100px;
-
-}
 
 /* Tema claro */
 body.light-theme {
@@ -24,12 +19,9 @@ body.light-theme {
 
 /* Tema oscuro */
 body.dark-theme {
-    
     background-color: #343a40;
     color: #ffffff;
 }
-
-
 
 /* Estilos del navbar según el tema */
 body.light-theme .navbar {
@@ -64,7 +56,6 @@ body.dark-theme #sunIcon {
     display: none;
     cursor: pointer;
 }
-
 
 /* Cambiar color de los iconos según el tema */
 body.light-theme #sunIcon,
@@ -105,7 +96,6 @@ body.dark-theme #moonIcon {
     align-items: center;
     margin-left: 50px;
 }
-
 
 .navbar-search input[type="search"] {
     width: 100%;
@@ -239,13 +229,7 @@ body.dark-theme #moonIcon {
     white-space: nowrap;
 }
 
-
-
-#suggestionsList .list-group-item {
-    cursor: pointer;
-}
-
-#cartB{
+#cartB {
     margin-left: 30px;
 }
 

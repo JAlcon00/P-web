@@ -1,0 +1,20 @@
+{
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "COOL STORE",
+    "url": "https://www.coolstore.com",
+    "logo": "https://www.coolstore.com/img/LogoC.svg",
+    "sameAs": [
+        "https://www.facebook.com/coolstore",
+        "https://www.twitter.com/coolstore",
+        "https://www.instagram.com/coolstore"
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main St",
+        "addressLocality": "Anytown",
+        "addressRegion": "CA",
+        "postalCode": "12345",
+        "addressCountry": "US"
+    }
+}

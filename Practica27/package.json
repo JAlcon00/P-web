@@ -1,16 +1,21 @@
 {
-  "name": "practica24",
+  "name": "practica27",
   "version": "1.0.0",
-  "description": "",
+  "description": "API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "P-Web"
+  },
+  "keywords": [
+    "12345"
+  ],
+  "author": "Jesus Almanza",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
